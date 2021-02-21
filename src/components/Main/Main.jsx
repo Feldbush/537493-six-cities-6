@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../card/Card';
+
+import CardsList from '../CardsList/CardsList';
+
+import {OfferType, UserType} from '../../types';
 
 const MainPage = (props) => {
-  const {countCards} = props;
-
-  const cards = new Array(countCards).fill().map((item, index) => {
-    return <Card key={index + Math.random()}/>;
-  });
+  const {
+    offers,
+    user: {
+      email,
+    },
+    isAuthorizated
+  } = props;
 
   return (
     <>
@@ -22,13 +27,24 @@ const MainPage = (props) => {
               </div>
               <nav className="header__nav">
                 <ul className="header__nav-list">
-                  <li className="header__nav-item user">
-                    <a className="header__nav-link header__nav-link--profile" href="#">
-                      <div className="header__avatar-wrapper user__avatar-wrapper">
-                      </div>
-                      <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    </a>
-                  </li>
+                  {
+                    isAuthorizated ?
+                      <li className="header__nav-item user">
+                        <a className="header__nav-link header__nav-link--profile" href="#">
+                          <div className="header__avatar-wrapper user__avatar-wrapper">
+                          </div>
+                          <span className="header__user-name user__name">{email}</span>
+                        </a>
+                      </li>
+                      :
+                      <li className="header__nav-item user">
+                        <a className="header__nav-link header__nav-link--profile" href="#">
+                          <div className="header__avatar-wrapper user__avatar-wrapper">
+                          </div>
+                          <span className="header__login">Sign in</span>
+                        </a>
+                      </li>
+                  }
                 </ul>
               </nav>
             </div>
@@ -93,9 +109,7 @@ const MainPage = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <div className="cities__places-list places__list tabs__content">
-                  {cards}
-                </div>
+                <CardsList offers={offers} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map"></section>
@@ -109,7 +123,9 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
-  countCards: PropTypes.number.isRequired,
+  offers: PropTypes.arrayOf(OfferType).isRequired,
+  user: UserType.isRequired,
+  isAuthorizated: PropTypes.bool.isRequired
 };
 
 export default MainPage;

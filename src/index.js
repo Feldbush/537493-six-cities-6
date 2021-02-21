@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/app/App';
-
-const Parametrs = {
-  COUNT_CARDS: 5,
-};
+import App from './components/App/App';
+import offers from './mocks/offers';
+import reviews from './mocks/reviews';
+import user from './mocks/user';
 
 ReactDOM.render(
     <App
-      countCards={Parametrs.COUNT_CARDS}
+      offers={offers}
+      reviews={reviews}
+      user={user}
     />,
     document.querySelector(`#root`)
 );
