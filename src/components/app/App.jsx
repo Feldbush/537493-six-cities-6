@@ -2,29 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import MainPage from '../main/MainPage';
-import SignIn from '../signIn/SignIn';
-import Favorites from '../favorites/Favorites';
-import Offer from '../offer/Offer';
-import Page404 from '../page404/Page404';
+import {OfferType, UserType, ReviewType} from '../../types';
+
+import MainPage from '../Main/Main';
+import SignIn from '../Sign In/Sign In';
+import Favorites from '../Favorites/Favorites';
+import Offer from '../Room/Room';
+import Page404 from '../Page404/Page404';
 
 const App = (props) => {
-  const {countCards} = props;
+  const {offers, user, reviews} = props;
+  const isAuthorizated = true;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainPage countCards={countCards}/>
+          <MainPage offers={offers} user={user} isAuthorizated={isAuthorizated}/>
         </Route>
         <Route exact path='/login'>
           <SignIn/>
         </Route>
         <Route exact path='/favorites'>
-          <Favorites/>
+          <Favorites offers={offers}/>
         </Route>
         <Route exact path='/offer/:id'>
-          <Offer/>
+          <Offer offer={offers[1]} reviews={reviews}/>
         </Route>
         <Route>
           <Page404/>
@@ -35,7 +38,9 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  countCards: PropTypes.number.isRequired,
+  offers: PropTypes.arrayOf(OfferType).isRequired,
+  user: UserType.isRequired,
+  reviews: PropTypes.arrayOf(ReviewType)
 };
 
 export default App;
