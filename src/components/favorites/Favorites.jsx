@@ -8,19 +8,19 @@ const Favorites = (props) => {
   const {offers} = props;
   let sortedOffers;
 
-  const getSortedByCity = () => {
-    const resultObj = {};
+  const getSortedByCity = (offersData) => {
+    const resultArray = [];
 
-    offers.map((offer) => {
-      if (!Array.isArray(resultObj[offer.city.name])) {
-        resultObj[offer.city.name] = [];
+    offersData.map((offer) => {
+      let currentCityIndex = resultArray.findIndex((item) => (item.city === offer.city.name));
+
+      if (currentCityIndex !== -1) {
+        resultArray[currentCityIndex].offers.push(offer);
+      } else {
+        resultArray.push({city: offer.city.name, offers: [offer]});
       }
-      resultObj[offer.city.name].push(offer);
     });
-    let resultArray = [];
-    Object.entries(resultObj).forEach(([key, value]) => {
-      resultArray.push({city: key, offers: value});
-    });
+
     return resultArray;
   };
 
@@ -61,7 +61,7 @@ const Favorites = (props) => {
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
               {
-                sortedOffers.map(({city}) => {
+                sortedOffers.map(({city, offers: offersData}) => {
                   return (
                     <li className="favorites__locations-items" key={city}>
                       <div className="favorites__locations locations locations--current">
@@ -72,11 +72,7 @@ const Favorites = (props) => {
                         </div>
                       </div>
                       <div className="favorites__places">
-                        {offers.map((offerData) => {
-                          return (
-                            <FavoriteCard offer={offerData} key={offerData.id}/>
-                          );
-                        })}
+                        {offersData.map((offerData) => (<FavoriteCard offer={offerData} key={offerData.id}/>))}
                       </div>
                     </li>
                   );
@@ -85,7 +81,7 @@ const Favorites = (props) => {
             </ul>
           </section>
           {
-            !(Array.isArray(offers) && offers.length > 0) && <section className="favorites favorites--empty">
+            Array.isArray(offers) && offers.length === 0 && <section className="favorites favorites--empty">
               <h1 className="visually-hidden">Favorites (empty)</h1>
               <div className="favorites__status-wrapper">
                 <b className="favorites__status">Nothing yet saved.</b>

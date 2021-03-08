@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 import {OfferType} from '../../types';
 import {RATING_STAR_WIDTH} from '../../constants';
 import {useHistory} from 'react-router-dom';
@@ -44,12 +46,12 @@ const FavoritesCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a onClick={() => {
+          <Link to="" onClick={() => {
             history.push(`/offer/1`);
           }
           }>
             {title}
-          </a>
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

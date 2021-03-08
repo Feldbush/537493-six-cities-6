@@ -10,7 +10,6 @@ const Card = (props) => {
     handleMouseEnter,
     handleMouseLeave,
     offer: {
-      // id,
       previewImage,
       title,
       type,

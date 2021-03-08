@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {CITIES} from '../../constants';
+import {getCityOffers} from '../../utils';
 
+import Map from '../Map/Map';
 import CardsList from '../CardsList/CardsList';
 
 import {OfferType, UserType} from '../../types';
@@ -11,8 +14,12 @@ const MainPage = (props) => {
     user: {
       email,
     },
-    isAuthorizated
+    isAuthorizated,
+    currentCity
   } = props;
+
+
+  const filtredOffers = getCityOffers(offers, currentCity);
 
   return (
     <>
@@ -56,36 +63,15 @@ const MainPage = (props) => {
           <div className="tabs">
             <section className="locations container">
               <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
+                {CITIES.map((city) => {
+                  return (
+                    <li className="locations__item" key={city}>
+                      <a className={`locations__item-link tabs__item" href="#" ${city === currentCity && `tabs__item--active`}`}>
+                        <span>{city}</span>
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           </div>
@@ -109,10 +95,12 @@ const MainPage = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <CardsList offers={offers} />
+                <CardsList offers={filtredOffers} />
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <Map offers={filtredOffers} />
+                </section>
               </div>
             </div>
           </div>
@@ -125,7 +113,8 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   offers: PropTypes.arrayOf(OfferType).isRequired,
   user: UserType.isRequired,
-  isAuthorizated: PropTypes.bool.isRequired
+  isAuthorizated: PropTypes.bool.isRequired,
+  currentCity: PropTypes.string.isRequired
 };
 
 export default MainPage;
