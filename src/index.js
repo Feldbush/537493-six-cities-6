@@ -11,6 +11,7 @@ ReactDOM.render(
       offers={offers}
       reviews={reviews}
       user={user}
+      currentCity={`Amsterdam`}
     />,
     document.querySelector(`#root`)
 );

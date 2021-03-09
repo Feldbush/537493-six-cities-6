@@ -11,14 +11,14 @@ import Offer from '../Room/Room';
 import Page404 from '../Page404/Page404';
 
 const App = (props) => {
-  const {offers, user, reviews} = props;
+  const {offers, user, reviews, currentCity} = props;
   const isAuthorizated = true;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainPage offers={offers} user={user} isAuthorizated={isAuthorizated}/>
+          <MainPage offers={offers} user={user} isAuthorizated={isAuthorizated} currentCity={currentCity}/>
         </Route>
         <Route exact path='/login'>
           <SignIn/>
@@ -40,7 +40,8 @@ const App = (props) => {
 App.propTypes = {
   offers: PropTypes.arrayOf(OfferType).isRequired,
   user: UserType.isRequired,
-  reviews: PropTypes.arrayOf(ReviewType)
+  reviews: PropTypes.arrayOf(ReviewType),
+  currentCity: PropTypes.string.isRequired
 };
 
 export default App;

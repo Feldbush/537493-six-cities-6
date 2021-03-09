@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import {RATING_STAR_WIDTH} from '../../constants';
-import ReviewsForm from '../ReviewsForm/ReviewsForm';
+import ReviewsForm from '../ReviewForm/ReviewForm';
 import {OfferType, ReviewType} from '../../types';
 
 const Room = (props) => {
@@ -163,7 +163,7 @@ const Room = (props) => {
                               </div>
                             </div>
                             <p className="reviews__text">
-                              A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+                              {comment.comment}
                             </p>
                             <time className="reviews__time" dateTime={`${dayjs(comment.date).format(`YYYY-MM-DD`)}`}>{dayjs(comment.date).format(`MMMM YYYY`)}</time>
                           </div>

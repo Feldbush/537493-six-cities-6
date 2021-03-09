@@ -3,9 +3,9 @@ const Offers = [
     bedrooms: 1,
     city: {
       location: {
-        latitude: 52.370216,
-        longitude: 4.895168,
-        zoom: 10
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
       },
       name: `Amsterdam`
     },
@@ -24,7 +24,7 @@ const Offers = [
     location: {
       latitude: 52.35514938496378,
       longitude: 4.673877537499948,
-      zoom: 8
+      zoom: 12
     },
     maxAdults: 4,
     previewImage: `apartment-01.jpg`,
@@ -40,7 +40,7 @@ const Offers = [
       location: {
         latitude: 12,
         longitude: 5.41214168,
-        zoom: 9
+        zoom: 12
       },
       name: `Paris`
     },
@@ -94,7 +94,7 @@ const Offers = [
     location: {
       latitude: 57.35514938496378,
       longitude: 5.673877537499948,
-      zoom: 8
+      zoom: 12
     },
     maxAdults: 1,
     previewImage: `apartment-03.jpg`,
@@ -108,9 +108,9 @@ const Offers = [
     bedrooms: 1,
     city: {
       location: {
-        latitude: 12,
-        longitude: 5.41214168,
-        zoom: 9
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 12
       },
       name: `Amsterdam`
     },
@@ -127,9 +127,9 @@ const Offers = [
     isFavorite: false,
     isPremium: false,
     location: {
-      latitude: 57.35514938496378,
-      longitude: 5.673877537499948,
-      zoom: 8
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
+      zoom: 12
     },
     maxAdults: 1,
     previewImage: `apartment-02.jpg`,
