@@ -4,7 +4,7 @@ import {CITIES} from '../../constants';
 import {getCityOffers} from '../../utils';
 
 import Map from '../Map/Map';
-import CardsList from '../CardsList/CardsList';
+import CitiesPlacesList from '../CitiesPlacesList/CitiesPlacesList';
 
 import {OfferType, UserType} from '../../types';
 
@@ -95,7 +95,7 @@ const MainPage = (props) => {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <CardsList offers={filtredOffers} />
+                <CitiesPlacesList offers={filtredOffers} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">

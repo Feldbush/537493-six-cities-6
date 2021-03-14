@@ -4,9 +4,13 @@ import Card from '../Card/Card';
 import {OfferType} from '../../types';
 
 const CardsList = (props) => {
-  const {offers} = props;
+  const {
+    offers,
+    className,
+    cardClassName
+  } = props;
   const [activeCard, setActiveCard] = useState(null);
-  const cards = offers.map((offer, index) => {
+  const cards = offers.map((offer) => {
     return (
       <Card
         offer={offer}
@@ -16,13 +20,14 @@ const CardsList = (props) => {
           }
         }}
         handleMouseLeave={() => {}}
-        key={index + Math.random()}
+        className={cardClassName}
+        key={offer.id}
       />
     );
   });
 
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <div className={`${className} places__list`}>
       {cards}
     </div>
   );
@@ -30,6 +35,8 @@ const CardsList = (props) => {
 
 CardsList.propTypes = {
   offers: PropTypes.arrayOf(OfferType).isRequired,
+  className: PropTypes.string,
+  cardClassName: PropTypes.string
 };
 
 export default CardsList;

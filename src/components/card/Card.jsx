@@ -16,14 +16,15 @@ const Card = (props) => {
       rating,
       price,
       isPremium,
-      isFavorite
-    }
+      isFavorite,
+    },
+    className
   } = props;
 
   const history = useHistory();
 
   return (
-    <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="cities__place-card place-card">
+    <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`${className} place-card`}>
       {
         isPremium &&
         <div className="place-card__mark">
@@ -71,7 +72,8 @@ const Card = (props) => {
 Card.propTypes = {
   handleMouseEnter: PropTypes.func.isRequired,
   handleMouseLeave: PropTypes.func.isRequired,
-  offer: OfferType
+  offer: OfferType,
+  className: PropTypes.string
 };
 
 export default Card;
