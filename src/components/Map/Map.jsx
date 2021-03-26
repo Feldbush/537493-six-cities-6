@@ -9,7 +9,7 @@ import {OfferType} from '../../types';
 
 
 const Map = (props) => {
-  let {
+  const {
     offers
   } = props;
 
