@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 import Map from '../Map/Map';
 import CitiesPlacesList from '../CitiesPlacesList/CitiesPlacesList';
-import CitiesList from '../CitiesList/CitiesList';
+import CitiesList from '../cities-list/cities-list';
 import MainEmpty from '../main-empty/main-empty';
 
 import {OfferType, UserType} from '../../types';
