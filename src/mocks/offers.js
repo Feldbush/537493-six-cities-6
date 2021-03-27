@@ -135,7 +135,77 @@ const Offers = [
     rating: 4.8,
     title: `Beautiful & luxurious studio at great location`,
     type: `apartment`
-  }
+  },
+
+  {
+    bedrooms: 2,
+    city: {
+      location: {
+        latitude: 12,
+        longitude: 5.41214168,
+        zoom: 9
+      },
+      name: `Cologne`
+    },
+    description: ` a a river by the unique lightness of Amsterdam.`,
+    goods: [`Kitchen`, `Washing machine`, `Coffee machine`, `Dishwasher`],
+    host: {
+      avatarUrl: `avatar-angelina.jpg`,
+      id: 5,
+      isPro: true,
+      name: `Angelina`
+    },
+    id: 3,
+    images: [`apartment-03.jpg`, `apartment-03.jpg`],
+    isFavorite: false,
+    isPremium: false,
+    location: {
+      latitude: 57.35514938496378,
+      longitude: 5.673877537499948,
+      zoom: 12
+    },
+    maxAdults: 1,
+    previewImage: `apartment-03.jpg`,
+    price: 125,
+    rating: 4.8,
+    title: `Beautiful & luxurious studio at great location`,
+    type: `apartment`
+  },
+
+  {
+    bedrooms: 2,
+    city: {
+      location: {
+        latitude: 12,
+        longitude: 5.41214168,
+        zoom: 9
+      },
+      name: `Brussels`
+    },
+    description: ` a a river by the unique lightness of Amsterdam.`,
+    goods: [`Kitchen`, `Washing machine`, `Coffee machine`, `Dishwasher`],
+    host: {
+      avatarUrl: `avatar-angelina.jpg`,
+      id: 5,
+      isPro: true,
+      name: `Angelina`
+    },
+    id: 3,
+    images: [`apartment-03.jpg`, `apartment-03.jpg`],
+    isFavorite: false,
+    isPremium: false,
+    location: {
+      latitude: 57.35514938496378,
+      longitude: 5.673877537499948,
+      zoom: 12
+    },
+    maxAdults: 1,
+    previewImage: `apartment-03.jpg`,
+    price: 125,
+    rating: 4.8,
+    title: `Beautiful & luxurious studio at great location`,
+    type: `apartment`
+  },
 ];
 
 export default Offers;

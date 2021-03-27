@@ -1,8 +1,5 @@
 export const getCityOffers = (offers, city) => {
-  const resultArray = offers.filter((offer) => {
-    return offer.city.name.toLowerCase() === city.toLowerCase();
-  });
-  return resultArray;
+  return offers.filter((offer) => (offer.city.name === city));
 };
 
 export const getCityInfo = (offer) => {

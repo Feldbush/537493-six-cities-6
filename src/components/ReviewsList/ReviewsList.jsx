@@ -9,11 +9,9 @@ const ReviewsList = (props) => {
   } = props;
 
   return (
-    <>
-      <ul className="reviews__list">
-        {reviews.map((review) => (<ReviewsItem key={review.id} review={review}/>))}
-      </ul>
-    </>
+    <ul className="reviews__list">
+      {reviews.map((review) => (<ReviewsItem key={review.id} review={review}/>))}
+    </ul>
   );
 
 };
